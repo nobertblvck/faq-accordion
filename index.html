@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="faq.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="faq-accordion-main/assets/images/favicon-32x32.png"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Audiowide&family=Cabin&family=Figtree&family=Inter:wght@300&family=Outfit:wght@200;400;500&family=Work+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>FAQ ACCORDION</title>
+  </head>
+
+  <body>
+    <div class="box1">
+      <div class="header1">
+        <img src="faq-accordion-main/assets/images/icon-star.svg" id="image1" />
+        <h1>FAQs</h1>
+      </div>
+      <div class="faq-item">
+        <div class="toggle">
+          <div class="question">
+            What is Frontend Mentor, and how will it help me?
+          </div>
+          <span class="hidden"
+            ><img src="faq-accordion-main/assets/images/icon-plus.svg"
+          /></span>
+          <span class="visible"
+            ><img src="faq-accordion-main/assets/images/icon-minus.svg"
+          /></span>
+        </div>
+        <div class="answer">
+          Frontend Mentor offers realistic coding challenges to help developers
+          improve their frontend coding skills with projects in HTML, CSS, and
+          JavaScript. It's suitable for all levels and ideal for portfolio
+          building.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="toggle">
+          <div class="question">Is Frontend Mentor free?</div>
+          <span class="hidden"
+            ><img src="faq-accordion-main/assets/images/icon-plus.svg"
+          /></span>
+          <span class="visible"
+            ><img src="faq-accordion-main/assets/images/icon-minus.svg"
+          /></span>
+        </div>
+        <div class="answer">
+          Yes, Frontend Mentor offers both free and premium coding challenges,
+          with the free option providing access to a range of projects suitable
+          for all skill levels.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="toggle">
+          <div class="question">
+            Can I use Frontend Mentor projects in my portfolio?
+          </div>
+          <span class="hidden"
+            ><img src="faq-accordion-main/assets/images/icon-plus.svg"
+          /></span>
+          <span class="visible"
+            ><img src="faq-accordion-main/assets/images/icon-minus.svg"
+          /></span>
+        </div>
+        <div class="answer">
+          Yes, you can use projects completed on Frontend Mentor in your
+          portfolio. It's an excellent way to showcase your skills to potential
+          employers!
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="toggle">
+          <div class="question">
+            How can I get help if I'm stuck on a Frontend Mentor challenge?
+          </div>
+          <span class="hidden"
+            ><img src="faq-accordion-main/assets/images/icon-plus.svg"
+          /></span>
+          <span class="visible"
+            ><img src="faq-accordion-main/assets/images/icon-minus.svg"
+          /></span>
+        </div>
+        <div class="answer">
+          The best place to get help is inside Frontend Mentor's Discord
+          community. There's a help channel where you can ask questions and seek
+          support from other community members.
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const toggleElements = document.querySelectorAll('.toggle')
+
+        toggleElements.forEach(function (toggleElement) {
+          const question = toggleElement.querySelector('.question')
+          const answer = toggleElement.nextElementSibling
+          const hiddenIcon = toggleElement.querySelector('.hidden')
+          const visibleIcon = toggleElement.querySelector('.visible')
+
+          toggleElement.addEventListener('click', function () {
+            // Hide all answers
+            toggleElements.forEach(function (otherToggle) {
+              const otherAnswer = otherToggle.nextElementSibling
+              const otherHiddenIcon = otherToggle.querySelector('.hidden')
+              const otherVisibleIcon = otherToggle.querySelector('.visible')
+
+              if (otherAnswer !== answer) {
+                otherAnswer.style.display = 'none'
+                otherHiddenIcon.style.display = 'inline-block'
+                otherVisibleIcon.style.display = 'none'
+              }
+            })
+
+            // Toggle the visibility of the selected answer
+            if (answer.style.display === 'block') {
+              answer.style.display = 'none'
+              hiddenIcon.style.display = 'inline-block'
+              visibleIcon.style.display = 'none'
+            } else {
+              answer.style.display = 'block'
+              hiddenIcon.style.display = 'none'
+              visibleIcon.style.display = 'inline-block'
+            }
+          })
+        })
+      })
+    </script>
+  </body>
+</html>
